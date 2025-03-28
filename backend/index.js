@@ -16,9 +16,6 @@ const PORT = parseInt(process.env.PORT) || 8421;
 
 connectToMongoDB();
 
-app.set('view engine', 'ejs');
-app.set('views', path.resolve('./views'));
-
 app.use(cors());
 app.use(logger);
 app.use(express.json());

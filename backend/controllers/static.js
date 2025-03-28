@@ -7,7 +7,7 @@ const USERS = require('../models/user');
 const { getUser } = require('../service/auth');
 
 async function handleHomePage(req, res) {
-    const token = req.cookie?.token || req.query.token;
+    const token = req.query.token;
     try {
         const user = getUser(token) || null;
         if (!user)
