@@ -1,0 +1,153 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: white;
+
+    background-image: url('/bg_link_tree.webp');
+    background-size: cover;  
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.no_links {
+    font-size: 18px;
+    color: #888;
+    margin-top: 10px;
+}
+
+.urls_details{
+    background: linear-gradient(135deg, #5a01a7 20%, #9c27b0 80%);
+    background-size: cover;
+    background-position: center;
+    animation: gradientAnimation 8s ease infinite;
+    
+    width: 100%;
+    max-width: 600px;
+    min-height: 600px;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    border: 2px solid black;
+    border-radius: 16px;
+
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.linktree_image{
+    border: 2px solid black;
+    height: 8em;
+    width: 8.8em;
+    margin-top: 10%;
+    margin-bottom: 4%;
+}
+
+.heading{
+    background-color: transparent;
+    color: white;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 6%;
+}
+
+.link_list {
+    background-color: transparent;
+    margin-top: 6%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.link_button {
+    display: block;
+    background: linear-gradient(135deg, #ff7eb3 30%, #ff758c 70%);
+    color: black;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover effect with a glowing animation */
+.link_button:hover {
+    background: linear-gradient(135deg, #ff758c 30%, #ff7eb3 70%);
+    box-shadow: 0px 0px 15px rgba(255, 120, 150, 0.6);
+    transform: scale(1.05);
+}
+
+/* Subtle shine effect */
+.link_button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-45deg);
+    transition: 0.6s;
+}
+
+.link_button:hover::after {
+    left: 100%;
+}
+
+.user_name{
+    width: 100%;
+    background-color: transparent;
+    margin: 12% 0;
+    padding: 0;
+    color: white;
+    font-size: 1.6em;
+    font-weight: 400;
+    text-align: center;
+}
+
+.spinner_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: transparent;
+}
+
+.spinner {
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid black;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

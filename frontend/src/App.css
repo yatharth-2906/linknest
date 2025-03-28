@@ -1,0 +1,973 @@
+/* variables */
+:root {
+    /* --primary: rgb(107, 183, 221, 0.8); */
+    --primary: #87ceeb;
+    --button-color: white;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    background-color: var(--primary);
+    font-family: 'Rubik Regular';
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.bg_white{
+    background-color: white;
+}
+
+/* base styles */
+body {
+    background: var(--primary);
+    overflow-x: hidden;
+}
+
+.button {
+    background: none;
+    border: 2px solid var(--button-color);
+    color: var(--button-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+    display: inline-block;
+    font-size: 1em;
+}
+
+.button:hover {
+    color: #222;
+    background: var(--primary);
+}
+
+.delete_btn {
+    margin: 0 20px;
+    font-size: 2em;
+    color: white;
+    background-color: #dc3545;
+    font-size: 1.1em;
+    padding: 6px 12px;
+    border: 2px solid #dc3545;
+    border-radius: 20px;
+    font-size: 1.1em;
+}
+
+.delete_btn:hover {
+    border-color: #bb2d3b;
+    background-color: #bb2d3b;
+    color: white;
+}
+
+/* fonts */
+@font-face {
+    font-family: 'Rubik Regular';
+    src: url("../assets/fonts/Rubik-Regular.ttf") format("ttf"),
+}
+
+h1,
+h2,
+h3,
+h4 {
+    /* color: #DDDBFF; */
+    font-weight: normal;
+    line-height: 1.4em;
+}
+
+p,
+a,
+li,
+.links {
+    color: #084298;
+    line-height: 1.4em;
+    font-size: 1em;
+}
+
+/* mobile styles */
+.nav_bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: min(80px, 20vw);
+    border-bottom: 2px solid black;
+    box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.8);
+}
+
+.user_name {
+    display: none;
+    font-size: 1.4em;
+    margin: 0 20px;
+    line-height: 1.4em;
+    color: black;
+}
+
+.dropbtn {
+    margin: 0 20px;
+    font-size: 2em;
+    background-color: var(--primary);
+    border: 0;
+    color: black;
+    /* padding: 20px; */
+}
+
+.dropdown-content {
+    display: none;
+}
+
+.nav-content {
+    display: none;
+}
+
+.sign_up_btn {
+    margin: 0 20px;
+    background-color: black;
+    border: 2px solid black;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.sign_up_btn:hover {
+    background-color: var(--primary);
+    color: black;
+}
+
+.not_found_container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.not_found_heading{
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    font-size: 2.4em;
+    margin: 10px;
+    line-height: 1.4em;
+}
+
+.not_found_image{
+    width: 400px;
+    height: 300px;
+}
+
+.brand_img {
+    width: 100%;
+    border: 2px solid black;
+    border-top: 0;
+    border-radius: 1px;
+}
+
+.brand_desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand_desc_heading {
+    width: 90vw;
+}
+
+.brand_desc_heading h1 {
+    color: black;
+    font-weight: 900;
+    font-size: 2.4em;
+    margin: 10px;
+    line-height: 1.4em;
+}
+
+.brand_para {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+}
+
+.brand_para1 {
+    color: black;
+    font-size: 1em;
+    margin: 10px;
+    line-height: 1.4em;
+}
+
+.brand_para2 {
+    margin-top: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    line-height: 1.4em;
+}
+
+.learn_more_btn {
+    background-color: black;
+    border: 2px solid black;
+    color: white;
+    margin: 0 20px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.learn_more_btn:hover {
+    background-color: transparent;
+    color: black;
+}
+
+.sign_up_btn_contrast {
+    background-color: var(--primary);
+    border: 2px solid black;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.sign_up_btn_contrast:hover {
+    background-color: black;
+    color: white;
+}
+
+.submit_btn {
+    background-color: var(--primary);
+    border: 2px solid black;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.submit_btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.logo_text {
+    color: darkblue;
+    font-weight: 900;
+    display: inline-block;
+}
+
+.logo_text2 {
+    color: black;
+    font-size: 1em;
+    display: inline-block;
+    font-weight: 500;
+    margin: 0 10px;
+    /* text-decoration: underline; */
+}
+
+.soil_health {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.soil_health_text {
+    width: 90vw;
+}
+
+.soil_health_heading h2 {
+    color: black;
+    font-weight: 900;
+    font-size: 2.4em;
+    margin: 10px;
+    line-height: 1.4em;
+}
+
+.soil_health_para {
+    color: black;
+    font-size: 1em;
+    margin: 10px;
+    line-height: 1.4em;
+}
+
+.soil_health_list li {
+    list-style-type: none;
+    color: black;
+    font-size: 1em;
+    margin: 10px;
+    line-height: 1.4em;
+}
+
+.icons_list {
+    list-style-type: none;
+    color: black;
+    font-size: 1.2em;
+    margin: 0 10px;
+    /* line-height: 1.4em; */
+}
+
+.soil_health_img_container {
+    object-fit: contain;
+    width: 90vw;
+}
+
+.soil_health_img {
+    width: 100%;
+    border: 2px solid black;
+}
+
+.soil_health_para_btn {
+    margin: 5% 0;
+    display: flex;
+    justify-content: space-evenly;
+    line-height: 1.4em;
+}
+
+.learn_more_btn_contrast {
+    background-color: var(--primary);
+    border: 2px solid black;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 1em;
+    background-color: transparent;
+}
+
+.learn_more_btn_contrast:hover {
+    background-color: black;
+    color: white;
+}
+
+.sign_up_btn_plane {
+    background-color: var(--primary);
+    color: black;
+    font-weight: 530;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.sign_up_btn_plane:hover {
+    font-weight: normal;
+    background-color: black;
+    color: white;
+}
+
+.rev {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rev_heading {
+    width: 90vw;
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    font-size: 2.4em;
+    margin: 10px 0;
+    line-height: 1.4em;
+}
+
+.rev_para {
+    width: 90vw;
+    text-align: center;
+    color: black;
+    font-size: 1em;
+    margin: 10px 0;
+    line-height: 1.4em;
+}
+
+.services {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.services_element {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.services_img {
+    width: 30%;
+}
+
+.services_head {
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    font-size: 1.8em;
+    margin: 10px 0;
+    line-height: 1.4em;
+}
+
+.services_para {
+    text-align: center;
+    color: black;
+    font-size: 1em;
+    margin: 10px 0;
+    line-height: 1.4em;
+}
+
+.logo_img_container {
+    display: flex;
+    justify-content: center;
+}
+
+#footer{
+    margin-top: auto;
+}
+
+.footer_rem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer_actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.footer_actions a {
+    color: black;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 10px 0;
+    line-height: 1.4em;
+}
+
+.footer_line_container {
+    display: flex;
+    justify-content: center;
+}
+
+.footer_line {
+    width: 80vw;
+    border: 2px solid black;
+}
+
+.copyright {
+    text-align: center;
+    color: black;
+    font-size: 1em;
+    margin: 10px 0;
+    line-height: 1em;
+}
+
+.policies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.policies a {
+    text-align: center;
+    color: black;
+    font-size: 1em;
+    margin: 10px 0;
+    line-height: 1em;
+}
+
+.btn_transition {
+    transition: all;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    transition-delay: 0s;
+}
+
+.nav_btn_container:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    height: 30vh;
+    position: absolute;
+    left: 0px;
+    top: min(80px, 20vw);
+}
+
+.dropdown-content-a {
+    width: 100%;
+    height: 33.33%;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-bottom: 2px solid rgb(72, 67, 67);
+    line-height: 1.4em;
+    color: black;
+}
+
+.form_heading {
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    font-size: 2.4em;
+    margin: 10px 0;
+    line-height: 1.4em;
+}
+
+.form_para {
+    text-align: center;
+    color: black;
+    font-size: 1em;
+    margin: 10px 0;
+    line-height: 1.4em;
+}
+
+.form_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+.details-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    /* gap: 20px; */
+}
+
+.details {
+    width: 100%;
+}
+
+.details-icon {
+    height: 70px;
+    width: 70px;
+    background-color: transparent;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.details-icon i {
+    font-size: 30px;
+    line-height: 70px;
+}
+
+.form_detail_heading {
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    font-size: 1.5em;
+    margin: 10px 0;
+    line-height: 1.4em;
+}
+
+#contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact-form * {
+    margin: 15px 0;
+}
+
+.inputt_container {
+    width: 100%;
+    text-align: center;
+    height: 3em;
+}
+
+.inputt {
+    width: 80%;
+    height: 100%;
+    border: 2px solid black;
+    background-color: transparent;
+    /* border-radius: 10px; */
+}
+
+.form-textarea-container {
+    width: 80%;
+    height: 8em;
+}
+
+#form-textarea {
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    /* border-radius: 10px; */
+}
+
+/* ::placeholder{
+    padding: 10px;
+    color: black;
+    font-size: 1.6em;
+    line-height: 1.4em;
+} */
+
+input[type='text'],
+input[type='email'],
+textarea,
+input[type='password'] {
+    padding: 10px;
+    color: black;
+    font-size: 1.6em;
+    line-height: 1.4em;
+}
+
+
+/* small tablet styles */
+@media screen and (min-width: 620px) {
+    .logo_img_container {
+        display: none;
+    }
+
+    .user_name {
+        display: block;
+        font-size: 1.4em;
+        margin: 0 20px;
+        line-height: 1.4em;
+        color: black;
+    }
+
+    .nav_btn_container {
+        display: none;
+    }
+
+    .services_dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .services_dropdown_heading {
+        color: black;
+        text-decoration: none;
+        padding: 0 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1em;
+        font-weight: 600;
+        line-height: 1.4em;
+        transition: color 0.3s ease;
+    }
+
+    .services_dropdown_heading:hover {
+        color: rgba(0, 0, 255, 0.75);
+    }
+
+    .services_dropdown_heading::after {
+        content: "▼";
+        margin-left: 2px;
+        font-size: 0.8em;
+        transition: transform 0.3s ease;
+    }
+
+    .services_dropdown.show .services_dropdown_heading::after {
+        content: "▲";
+        transform: rotate(180deg);
+    }
+
+    .services_dropdown.show .services_dropdown_heading {
+        color: rgba(0, 0, 255, 0.75);
+    }
+
+    .services_dropdown_menu {
+        display: none;
+        position: absolute;
+        text-decoration: none;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+        z-index: 1;
+        white-space: nowrap
+    }
+
+    .services_dropdown.show .services_dropdown_menu {
+        display: block;
+        border-radius: 10px;
+    }
+
+    .services_dropdown_links {
+        display: block;
+        text-align: center;
+        color: black;
+        font-size: 1.1em;
+        font-weight: 600;
+        padding: 10px;
+        line-height: 1.4em;
+        text-decoration: none;
+        border-radius: 10px;
+    }
+
+    .services_dropdown_links:hover {
+        background-color: #ddd;
+    }
+
+    .nav-content {
+        display: inline;
+    }
+
+    .nav-content a {
+        text-align: center;
+        color: black;
+        font-size: 1.1em;
+        font-weight: 600;
+        padding: 0 10px;
+        line-height: 1.4em;
+    }
+
+    .brand_desc {
+        flex-direction: row;
+    }
+
+    .brand_desc_heading {
+        width: 50vw;
+    }
+
+    .brand_para {
+        width: 50vw;
+        height: 100%;
+    }
+
+    .brand_para1 {
+        margin: 0;
+        font-size: 1.2em;
+        margin-top: 1.4em;
+    }
+
+    .brand_para2 {
+        margin-top: 8%;
+        align-items: center;
+    }
+
+    .soil_health {
+        flex-direction: row;
+    }
+
+    .soil_health_text {
+        width: 50vw;
+    }
+
+    .soil_health_heading h2 {
+        font-size: 2em;
+    }
+
+    .soil_health_img_container {
+        width: 50vw;
+    }
+
+    .soil_health_img {
+        width: 90%;
+        height: 100%;
+    }
+
+    .soil_health_list li {
+        margin-top: 0;
+        line-height: 1em;
+    }
+
+    .soil_health_para_btn {
+        margin: 5% 10px;
+        justify-content: flex-start;
+    }
+
+    .rev_para {
+        font-size: 1.6em;
+    }
+
+    .services {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .services_element {
+        width: 33vw;
+    }
+
+    .services_para {
+        font-size: 1.4em;
+    }
+
+    .footer_actions {
+        flex-direction: row;
+    }
+
+    .footer_rem {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 10px;
+    }
+
+    .policies {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .policies a {
+        padding: 0 10px;
+    }
+
+    .footer_line {
+        width: 90vw;
+    }
+
+    .sign_up_btn_plane {
+        margin-left: 20px;
+    }
+
+    .footer_actions a {
+        font-size: 1.4em;
+    }
+
+    .copyright {
+        font-size: 1.1em;
+    }
+
+    .policies a {
+        font-size: 1.1em;
+    }
+
+    .form_div {
+        flex-direction: row;
+    }
+
+    #contact-form {
+        width: 50%;
+    }
+
+    .details {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        /* border-right: 2px solid black; */
+    }
+
+    .details-item {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .form_para {
+        text-align: center;
+        font-size: 1.4em;
+    }
+}
+
+/* large tablet & laptop styles */
+@media screen and (min-width: 960px) {
+    .brand_img {
+        width: 100%;
+        height: 40vw;
+    }
+
+    .brand_para2 {
+        margin-top: 4%;
+        justify-content: center;
+    }
+
+    .brand_para2 a {
+        margin: 0 40px;
+    }
+
+    .nav-content {
+        margin: 0 20px;
+    }
+
+    .sign_up_btn_container {
+        margin: 0 40px;
+    }
+
+    .copyright {
+        font-size: 1.4em;
+    }
+
+    .policies a {
+        font-size: 1.4em;
+    }
+}
+
+/* desktop styles */
+@media screen and (min-width: 1200px) {
+    .brand_desc {
+        height: 25vw;
+        margin: 0 20px;
+    }
+
+    .brand_para {
+        justify-content: center;
+    }
+
+    .brand_para2 {
+        margin-top: 2%;
+    }
+
+    .brand_desc_heading {
+        display: flex;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .brand_desc_heading h1 {
+        font-size: 3.3em;
+    }
+
+    .brand_para1 {
+        font-size: 1.8em;
+    }
+
+    .soil_health {
+        margin: 0 20px;
+    }
+
+    .soil_health_img_container {
+        height: 400px;
+        text-align: center;
+    }
+
+    .rev_heading {
+        width: 50vw;
+        margin: 0 20px;
+    }
+
+    .rev_para {
+        width: 55vw;
+    }
+
+    .services {
+        margin: 0 20px;
+        gap: 20px;
+    }
+
+    .soil_health_heading h2 {
+        font-size: 2.3em;
+    }
+
+    .soil_health_para {
+        font-size: 1.6em;
+    }
+}

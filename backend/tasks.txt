@@ -1,0 +1,16 @@
+- Create User and a way for its authentication.
+
+- Create url table in which url details are stored according to the tree_id.
+
+- The link tree table contains email_id and tree_id of the generated tree.
+
+- Make user to Create Trees.
+- Display all trees in user profile.
+- Make user ability to edit the link trees(add url, delete url, edit name).
+
+- Make a good frontend.
+
+- Update model for user profile to store details.
+- Make api request to get profile.
+- Make user profile page.
+- Make backend_url in useContext and make required changes in API Calls.

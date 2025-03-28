@@ -1,0 +1,222 @@
+/* Mobile Styles */
+.photo_upload_form{
+    margin-top: 4em;
+    padding: 0 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.photo_upload_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.photo_edit_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo_edit_button_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_profile_image{
+    width: 5em;
+    height: 5em;
+    border: 2px solid black;
+    border-radius: 50%;
+    object-fit: cover;
+
+    margin: 0 20px;
+}
+
+.user_name_email_container{
+    margin-right: 20px;
+}
+
+.user_name{
+    display: block;
+    font-size: 1.4em;
+    font-weight: 550;
+    color: black;
+}
+
+.user_email{
+    display: block;
+    font-size: 1em;
+    color: black;
+}
+
+.remove_user_profile_photo{
+    margin: 20px;
+    margin-top: 40px;
+    font-size: 2em;
+    color: white;
+    background-color: #dc3545;
+    font-size: 1.1em;
+    padding: 6px 12px;
+    border: 2px solid #dc3545;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.remove_user_profile_photo:hover{
+    border-color: #bb2d3b;
+    background-color: #bb2d3b;
+    color: white;
+}
+
+.photo_submit_form_btn{
+    margin: 20px;
+    margin-top: 40px;
+    font-size: 2em;
+    color: white;
+    background-color: black;
+    font-size: 1.1em;
+    padding: 6px 12px;
+    border: 2px solid black;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.photo_submit_form_btn:hover{
+    background-color: white;
+    color: black;
+}
+
+.btn_transition{
+    transition: all;
+    transition-duration: 0.8s;
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    transition-delay: 0s;
+}
+
+.profile_photo_file_input{
+    width: 0;
+    display: block;
+    visibility: hidden;
+}
+
+.user_details_input_container{
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_details_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_details_input{
+    margin: 10px;
+}
+
+.file_submit_form_btn{
+    margin: 20px;
+    background-color: black;
+    color: white;
+    font-weight: 530;
+    padding: 6px 12px;
+    border: 2px solid black;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.file_submit_form_btn:hover {
+    background-color: var(--primary);
+    color: black;
+}
+
+
+/* Tablet Screen Sizes */
+@media screen and (min-width: 620px){
+    .photo_upload_form{
+        margin-top: 40px;
+    }
+
+    .photo_upload_container{
+        flex-direction: row;
+        max-width: 600px;
+        background-color: white;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .photo_edit_container{
+        width: 70%;
+        justify-content: flex-start;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .user_name_email_container{
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .photo_edit_button_container{
+        width: 50%;
+        justify-content: flex-end;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .remove_user_profile_photo, .photo_submit_form_btn{
+        margin-top: 20px;
+    }
+
+    .user_details_input_container{
+        max-width: 600px;
+        margin: 40px 0;
+        padding: 10px 0;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .user_details_container{
+        margin: 10px 0;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: white;
+    }
+
+    .user_details_input{
+        width: 240px;
+    }
+}
+
+/* Laptop Screen Sizes */
+@media screen and (min-width: 780px){
+    .photo_upload_container{
+        max-width: 800px;
+    }
+
+    .user_details_input_container{
+        max-width: 800px;
+    }
+
+    .user_details_input{
+        margin: 10px 30px;
+        width: 290px;
+    }
+}
