@@ -17,7 +17,11 @@ const PORT = parseInt(process.env.PORT) || 8421;
 
 connectToMongoDB();
 
-app.use(cors());
+app.use(cors({
+  origin: ["https://linknest-git-main-yatharth-2906s-projects.vercel.app/"],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  credentials: true
+}));
 // app.use(logger);
 app.use(express.json());
 app.use(cookieParser());

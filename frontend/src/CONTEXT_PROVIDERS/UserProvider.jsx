@@ -25,8 +25,8 @@ function useToken() {
 }
 
 export function UserProvider({ children }) {
-    // const backend_url = 'http://localhost:8000';
-    const backend_url = import.meta.env.VITE_BACKEND_URL;
+    const backend_url = 'https://linknest-git-main-yatharth-2906s-projects.vercel.app/';
+    // const backend_url = import.meta.env.VITE_BACKEND_URL;
 
     const [user, setUser] = useState(() => {
         const storedUser = localStorage.getItem("user");
