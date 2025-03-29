@@ -1,6 +1,6 @@
 # LinkNest
-LinkNest is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) project that allows users to create multiple "nests," each containing multiple URLs. 
-Users can share a single unique link for each nest to showcase all their important links in one place.
+LinkNest is a streamlined link management platform that is built using the MERN stack. It lets users create and share customizable "nests" containing multiple URLs. 
+Designed for social media managers and content creators, it provides a centralized hub to showcase all important links with a single shareable URL.
 
 ## 🎯 Features
 - **JWT Authentication**: Secure signup/login.
