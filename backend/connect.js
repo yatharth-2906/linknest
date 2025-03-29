@@ -1,15 +1,18 @@
+const path = require('path');
 require('dotenv').config({ path: './.env' });
+
 const mongoose = require('mongoose');
 
-const mongodb_url = String(process.env.DB_URL);
+const URL = process.env.DB_ONLINE_URL;
+const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 
 async function connectToMongoDB() {
     try {
-        await mongoose.connect(mongodb_url);
+        await mongoose.connect(URL, clientOptions);
+        await mongoose.connection.db.admin().command({ ping: 1 });
         console.log('Server connected to the Database.');
-    } catch (error) {
-        console.error('MongoDB connection failed:', error);
-        process.exit(1);
+    } catch(err){
+        console.log(err);
     }
 }
 

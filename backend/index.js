@@ -1,5 +1,6 @@
-require('dotenv').config({ path: './.env' });
 const path = require('path');
+require('dotenv').config({ path: './.env' });
+
 const cors = require('cors');
 const express = require('express');
 const connectToMongoDB = require('./connect');
@@ -17,7 +18,7 @@ const PORT = parseInt(process.env.PORT) || 8421;
 connectToMongoDB();
 
 app.use(cors());
-app.use(logger);
+// app.use(logger);
 app.use(express.json());
 app.use(cookieParser());
 app.use(checkLoginStatus);

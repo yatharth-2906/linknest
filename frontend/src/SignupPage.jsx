@@ -30,7 +30,7 @@ function SignupPage(){
                 console.log(data);
                 window.location.href = "/login";
             } else {
-                alert(data['err']);
+                alert("Retry");
                 console.log(data);
             }
 

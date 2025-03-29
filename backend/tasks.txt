@@ -14,3 +14,9 @@
 - Make api request to get profile.
 - Make user profile page.
 - Make backend_url in useContext and make required changes in API Calls.
+
+
+yatharth
+KFw0fJr0e2wrq0mZ
+
+mongodb+srv://yatharth:<db_password>@linknest.h3ctu7o.mongodb.net/?retryWrites=true&w=majority&appName=LinkNest

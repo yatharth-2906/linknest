@@ -25,7 +25,8 @@ function useToken() {
 }
 
 export function UserProvider({ children }) {
-    const backend_url = 'http://localhost:8000';
+    // const backend_url = 'http://localhost:8000';
+    const backend_url = import.meta.env.VITE_BACKEND_URL;
 
     const [user, setUser] = useState(() => {
         const storedUser = localStorage.getItem("user");
