@@ -26,7 +26,7 @@ function Footter(){
         <div className="footer_rem">
             <div className="copyright">© {date.getFullYear()} LinkNest. All rights reserved.</div>
             <div className="policies">
-                <Link to="https://github.com/yatharth-2906">Made with ❤️ by Yatharth</Link>
+                <Link to="https://github.com/yatharth-2906/linknest" target="_blank" rel="noopener noreferrer">Made with ❤️ by Yatharth</Link>
             </div>
         </div>
     </div>

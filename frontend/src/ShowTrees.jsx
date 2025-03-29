@@ -69,7 +69,7 @@ function ShowTrees(props) {
                             <th>Nest Name</th>
                             <th>Edit Nest</th>
                             <th>Delete Nest</th>
-                            <th>Last Updated</th>
+                            <th className={styles.hide_on_small}>Last Updated</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,7 +95,7 @@ function ShowTrees(props) {
                                         Delete
                                     </button>
                                 </td>
-                                <td>{formatDate(tree.last_updated)}</td>
+                                <td className={styles.hide_on_small}>{formatDate(tree.last_updated)}</td>
                             </tr>
                         ))}
                     </tbody>

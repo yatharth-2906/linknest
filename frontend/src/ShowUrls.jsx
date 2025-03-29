@@ -10,7 +10,7 @@ function ShowTrees(props) {
                     <tr>
                         <th>Serial No.</th>
                         <th>URL Name</th>
-                        <th>URL PATH</th>
+                        <th className={styles.hide_on_small}>URL PATH</th>
                         <th>Delete URL</th>
                     </tr>
                 </thead>
@@ -21,7 +21,7 @@ function ShowTrees(props) {
                             <td>
                                 <Link className='links bg_white' to={url.url_path} target="_blank" rel="noopener noreferrer">{url.url_name}</Link>
                             </td>
-                            <td>{url.url_path}</td>
+                            <td className={styles.hide_on_small}>{url.url_path}</td>
                             <td><button className={`${styles.delete_btn} ${styles.btn_transition}`} onClick={() => props.handleDeleteClick(url.tree_id, url.url_name, url.url_path)}>Delete</button></td>
                         </tr>
                     ))}
