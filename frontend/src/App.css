@@ -12,7 +12,7 @@
     box-sizing: border-box;
     text-decoration: none;
     background-color: var(--primary);
-    font-family: 'Rubik Regular';
+    font-family: 'Times New Roman', Times, serif;
 }
 
 #root {
@@ -64,12 +64,6 @@ body {
     border-color: #bb2d3b;
     background-color: #bb2d3b;
     color: white;
-}
-
-/* fonts */
-@font-face {
-    font-family: 'Rubik Regular';
-    src: url("../assets/fonts/Rubik-Regular.ttf") format("ttf"),
 }
 
 h1,
