@@ -50,10 +50,8 @@ VITE_BACKEND_URL='http://localhost:8000'
 ```
 
 ## 📷 Screenshots
-(Add relevant screenshots here)
-
-## 📜 License
-This project is licensed under the MIT License.
+![Image](https://github.com/user-attachments/assets/8d8d2798-6639-44e5-b331-42c3e3da153b)
+![Image](https://github.com/user-attachments/assets/7fe9543c-8d9d-4474-bbd9-17d880c5bf43)
 
 ## 📞 Contact
 For any issues, reach out at [yatharth2906@gmail.com] or open an issue on GitHub.
