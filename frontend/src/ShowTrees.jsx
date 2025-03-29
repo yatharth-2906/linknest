@@ -21,7 +21,9 @@ function ShowTrees(props) {
         return `${day}-${month}-${year} ${hours}:${minutes} ${ampm}`;
     };
 
-    const handleEditTreeClick = (tree_id) => {
+    const handleEditTreeClick = (e, tree_id) => {
+        e.preventDefault();
+
         setSelectedTree(tree_id); 
         setShowEditPopup(true); 
     };
@@ -82,7 +84,7 @@ function ShowTrees(props) {
                                 <td>
                                     <button 
                                         className={`${styles.edit_btn} ${styles.btn_transition}`} 
-                                        onClick={() => handleEditTreeClick(tree.tree_id)}
+                                        onClick={(e) => handleEditTreeClick(e, tree.tree_id)}
                                     >
                                         Edit
                                     </button>
@@ -90,7 +92,7 @@ function ShowTrees(props) {
                                 <td>
                                     <button 
                                         className={`${styles.delete_btn} ${styles.btn_transition}`} 
-                                        onClick={() => props.handleDeleteTreeClick(tree.tree_id)}
+                                        onClick={(e) => props.handleDeleteTreeClick(e, tree.tree_id)}
                                     >
                                         Delete
                                     </button>

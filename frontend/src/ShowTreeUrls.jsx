@@ -43,7 +43,9 @@ function ShowTreesUrls() {
         }
     }
 
-    async function handleDeleteClick(tree_id, url_name, url_path) {
+    async function handleDeleteClick(e, tree_id, url_name, url_path) {
+        e.preventDefault();
+        
         const token = Cookies.get("token");
         const task = "DELETE";
 
@@ -68,7 +70,9 @@ function ShowTreesUrls() {
         }
     }
 
-    async function handleAddUrl(tree_id) {
+    async function handleAddUrl(e, tree_id) {
+        e.preventDefault();
+
         const token = Cookies.get("token");
         const task = "ADD";
         const url_name = document.getElementById('url_name').value;
@@ -130,7 +134,7 @@ function ShowTreesUrls() {
                 <div className={styles.popup_overlay}>
                     <div className={styles.popup_container}>
                         <h3>Add New URL</h3>
-                        <form className='bg_white' onSubmit={()=> {handleAddUrl(tree_id)}}>
+                        <form className='bg_white' onSubmit={(e)=> {handleAddUrl(e, tree_id)}}>
                             <div className={styles.form_group}>
                                 <label htmlFor="url_name">URL Name:</label>
                                 <input

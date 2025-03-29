@@ -2,7 +2,7 @@ import styles from './Profile.module.css';
 import ShowTrees from './ShowTrees';
 import EmptyComponent from './EmptyComponent';
 import { useContextUser } from "./CONTEXT_PROVIDERS/UserProvider";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Cookies from "js-cookie";
 
 function Nests() {
@@ -13,6 +13,7 @@ function Nests() {
         window.location.href = "/login";
     }
 
+    const treeNameRef = useRef(null);
     const [trees, setTrees] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -39,9 +40,12 @@ function Nests() {
         }
     }
 
-    async function handleCreatetree() {
+    async function handleCreatetree(e) {
+        e.preventDefault();
+
         const token = Cookies.get("token"); 
-        const tree_name = document.getElementById('tree_name').value.trim();
+        // const tree_name = document.getElementById('tree_name').value.trim();
+        const tree_name = treeNameRef.current.value.trim();
 
         if (!tree_name) {
             alert("Please enter a tree name");
@@ -64,7 +68,9 @@ function Nests() {
         }
     }
 
-    async function handleDeleteTreeClick(tree_id) {
+    async function handleDeleteTreeClick(e, tree_id) {
+        e.preventDefault();
+        
         const token = Cookies.get('token');
 
         try {
@@ -121,6 +127,7 @@ function Nests() {
                                 type="text"
                                 id="tree_name"
                                 name="tree_name"
+                                ref={treeNameRef}
                                 required
                             />
                         </div>
