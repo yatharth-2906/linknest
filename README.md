@@ -1,6 +1,7 @@
-# LinkNest
+# 🔗LinkNest
 LinkNest is a streamlined link management platform that is built using the MERN stack. It lets users create and share customizable "nests" containing multiple URLs. 
 Designed for social media managers and content creators, it provides a centralized hub to showcase all important links with a single shareable URL.
+
 
 ## 🎯 Features
 - **JWT Authentication**: Secure signup/login.
