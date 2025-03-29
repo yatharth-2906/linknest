@@ -18,11 +18,14 @@ const PORT = parseInt(process.env.PORT) || 8421;
 connectToMongoDB();
 
 app.use(cors({
-  origin: "*",
+  origin: function (origin, callback) {
+    callback(null, true);
+  },
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 }));
-// app.use(logger);
+
+// app.use(logger); 
 app.use(express.json());
 app.use(cookieParser());
 app.use(checkLoginStatus);
