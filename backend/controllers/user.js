@@ -2,62 +2,24 @@ const path = require('path');
 require('dotenv').config({ path: '../.env' });
 
 const bcrypt = require('bcrypt');
-const fs = require('fs');
 const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
+const streamifier = require('streamifier');
 
 const USERS = require('../models/user');
 
 const { setUserSession, getUser } = require('../service/auth');
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'upload/');
-    },
-    filename: async (req, file, cb) => {
-        try {
-            const fileExtension = file.originalname.split('.').pop();
-            const token = req.headers.token;
-            
-            if (!token) {
-                return cb(new Error("Token Not Provided!!"), null);
-            }
-
-            const user = getUser(token);
-            if (!user) {
-                return cb(new Error("User Not Found!!"), null);
-            }
-
-            const email_id = user.email_id;
-            const fileName = `${email_id}.${fileExtension}`;
-
-            cb(null, fileName);
-
-            await USERS.findOneAndUpdate({ email_id }, { $set: { profile_photo_path: fileName } })
-                .catch(console.error);
-        } catch (error) {
-            cb(error, null);
-        }
-    }
-});
-
+const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_SECRET_KEY
+});
+
 const saltRounds = parseInt(process.env.SALT_ROUNDS);
-
-async function handleGetProfilePhoto(req, res) {
-    const name = req.query.photo_name;
-    try {
-        const filePath = path.join(__dirname, `../upload/${name}`);
-
-        if (!fs.existsSync(filePath)) {
-            return res.status(404).json({ "err": "Photo not found!!" });
-        }
-
-        return res.status(200).sendFile(filePath);
-    } catch (err) {
-        return res.status(400).json({ "err": err });
-    }
-}
 
 async function handleUserSignup(req, res) {
     try {
@@ -159,7 +121,7 @@ async function handleUpdateUserPhoto(req, res) {
         }
 
         const token = req.headers.token;
-            
+
         if (!token) {
             return res.status(400).json({ "status": "Error", "msg": "No Token Attached!!" });
         }
@@ -170,16 +132,27 @@ async function handleUpdateUserPhoto(req, res) {
         }
 
         const email_id = user.email_id;
-        const fileExtension = file.originalname.split('.').pop();
-        const fileName = `${email_id}.${fileExtension}`;
 
-        return res.status(200).json({ "status": "Success", "msg": "Photo Uploaded Successfully!!", "fileName": fileName });
+        const result = await new Promise((resolve, reject) => {
+            let stream = cloudinary.uploader.upload_stream(
+                { folder: "linkenst_profile_pictures", public_id: email_id },
+                (error, result) => {
+                    if (error) reject(error);
+                    else resolve(result);
+                }
+            );
+            streamifier.createReadStream(file.buffer).pipe(stream);
+        });
+
+        await USERS.findOneAndUpdate({ email_id }, { $set: { profile_photo_path: result.secure_url } })
+
+        return res.status(200).json({ "status": "Success", "msg": "Photo Uploaded Successfully!!", "fileName": result.secure_url });
     } catch (error) {
         return res.status(500).json({ "status": "Error", "msg": "Internal Server Error!!", "error": error.message });
     }
 }
 
-async function handleGetUserDetails(req, res)  {
+async function handleGetUserDetails(req, res) {
     const { token } = req.query;
 
     if (!token) {
@@ -227,15 +200,11 @@ async function handleRemoveUserPhoto(req, res) {
             return res.status(400).json({ status: "Error", msg: "User image deosn't exists!" });
         }
 
-        const filePath = path.join(__dirname, '..', 'upload', userDetails.profile_photo_path);
-
+        const publicId = userDetails.profile_photo_path.split('/').pop().split('.')[0];
         try {
-            await fs.promises.access(filePath, fs.constants.F_OK);
-            await fs.promises.unlink(filePath);
+            await cloudinary.uploader.destroy(`profile_pictures/${publicId}`);
         } catch (err) {
-            if (err.code !== 'ENOENT') { 
-                console.error("Error deleting file:", err);
-            }
+            console.error("Error deleting file from Cloudinary:", err);
         }
 
         await USERS.findOneAndUpdate(
@@ -254,7 +223,6 @@ async function handleRemoveUserPhoto(req, res) {
 
 module.exports = {
     upload,
-    handleGetProfilePhoto,
     handleUserSignup,
     handleUpdateUserDetails,
     handleUserLogin,

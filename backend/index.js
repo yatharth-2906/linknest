@@ -7,7 +7,6 @@ const connectToMongoDB = require('./connect');
 
 const cookieParser = require('cookie-parser');
 const logger = require('./middlewares/logger');
-const checkLoginStatus = require('./middlewares/checkLoginStatus');
 
 const staticRouter = require('./routes/static')
 const userRouter = require('./routes/user');
@@ -17,8 +16,15 @@ const PORT = parseInt(process.env.PORT) || 8421;
 
 connectToMongoDB();
 
+const allowedOrigins = ['https://linknest-frontend.vercel.app', 'http://localhost:5173'];
 app.use(cors({
-  origin: 'https://linknest-frontend.vercel.app',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 }));
@@ -26,7 +32,6 @@ app.use(cors({
 // app.use(logger); 
 app.use(express.json());
 app.use(cookieParser());
-app.use(checkLoginStatus);
 app.use(express.urlencoded({extended:false}));
 
 app.use('/', staticRouter);

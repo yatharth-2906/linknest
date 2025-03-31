@@ -154,7 +154,7 @@ function Profile() {
                         <img
                             id='user_profile_img'
                             className={styles.user_profile_image}
-                            src={`${backend_url}/user?photo_name=${user.profile_photo}` || 'default_user_image.png'}
+                            src={`${user.profile_photo}` || 'default_user_image.png'}
                             alt="profile_photo"
                             onClick={handleUploadProfilePhoto}
                             onError={(e) => {
