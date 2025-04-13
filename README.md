@@ -45,7 +45,7 @@ JWT_SECRET="bk0nYoKLYv0gg2kU7qAm"
 DB_ONLINE_URL="mongodb://127.0.0.1:27017/linknest"
 ```
 
-### 1️⃣ Create a `.env` file in the frontend directory and add:
+### 2️⃣ Create a `.env` file in the frontend directory and add:
 ```
 VITE_BACKEND_URL='http://localhost:8000'
 ```
