@@ -41,7 +41,7 @@ npm run dev
 ```
 PORT=8000
 SALT_ROUNDS=10
-JWT_SECRET="bk0nYoKLYv0gg2kU7qAm"
+JWT_SECRET="your-secret-key"
 DB_ONLINE_URL="mongodb://127.0.0.1:27017/linknest"
 ```
 
